@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.
                 inMemoryAuthentication()
-                    .withUser("admin").password("password").roles("ADMIN");
+                    .withUser("admin").password("admin").roles("ADMIN");
 
     }
 
@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/login2").permitAll()
                         .anyRequest().authenticated()
                         .and()
+                .csrf().disable()
                 .formLogin()
                         .loginPage("/login2")
                         .defaultSuccessUrl("/welcome");

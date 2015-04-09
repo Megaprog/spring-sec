@@ -17,7 +17,7 @@
   </c:if>
   <p>
     <label for="username">Username</label>
-    <input type="text" id="username" name="username"/>
+    <input type="text" id="username" name="username" autocomplete="off"/>
   </p>
   <p>
     <label for="password">Password</label>

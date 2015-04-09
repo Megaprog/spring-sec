@@ -50,4 +50,9 @@ public class HelloController {
 
 	}
 
+	@RequestMapping("/data")
+	public String checkData(@RequestParam("line") String line) {
+		System.out.println(line);
+		return "hello";
+	}
 }
