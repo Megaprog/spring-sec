@@ -15,7 +15,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.spi.PersistenceProvider;
 import java.io.IOException;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -46,9 +45,6 @@ public class PersistenceConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(PersistenceProvider persistenceProvider, Properties jpaProperties) throws IOException, SQLException {
-        //without it h2 driver is not found when deployed on Tomcat
-        DriverManager.registerDriver(new org.h2.Driver());
-
         final LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 
         localContainerEntityManagerFactoryBean.setPersistenceProvider(persistenceProvider);
